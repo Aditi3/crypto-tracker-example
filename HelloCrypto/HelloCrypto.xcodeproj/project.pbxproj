@@ -11,6 +11,7 @@
 		4928A2F0257DF0B500651E35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4928A2EF257DF0B500651E35 /* Assets.xcassets */; };
 		4928A2F3257DF0B500651E35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */; };
 		4928A2FF257DF9DE00651E35 /* HCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */; };
+		4942FF062586FF9600CB3075 /* HCCoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF052586FF9600CB3075 /* HCCoinData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		4928A2F2257DF0B500651E35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4928A2F4257DF0B500651E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTableViewController.swift; sourceTree = "<group>"; };
+		4942FF052586FF9600CB3075 /* HCCoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCoinData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				4928A2E6257DF0B400651E35 /* AppDelegate.swift */,
 				4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */,
+				4942FF052586FF9600CB3075 /* HCCoinData.swift */,
 				4928A2EF257DF0B500651E35 /* Assets.xcassets */,
 				4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */,
 				4928A2F4257DF0B500651E35 /* Info.plist */,
@@ -131,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4928A2FF257DF9DE00651E35 /* HCTableViewController.swift in Sources */,
+				4942FF062586FF9600CB3075 /* HCCoinData.swift in Sources */,
 				4928A2E7257DF0B400651E35 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
