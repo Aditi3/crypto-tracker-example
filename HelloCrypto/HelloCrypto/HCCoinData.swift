@@ -31,6 +31,11 @@ class Coin {
     var historicalData = [Double]()
     
     init(symbol: String) {
+       
         self.symbol = symbol
+        
+        if let image = UIImage(named: symbol.lowercased()) {
+           self.image = image
+        }
     }
 }
