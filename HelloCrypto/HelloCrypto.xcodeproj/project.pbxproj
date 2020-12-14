@@ -100,6 +100,7 @@
 				4928A2DF257DF0B400651E35 /* Sources */,
 				4928A2E0257DF0B400651E35 /* Frameworks */,
 				4928A2E1257DF0B400651E35 /* Resources */,
+				3A59D6F4E82AE07CE322F026 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +156,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A59D6F4E82AE07CE322F026 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9CCD40BFEEE33A20E3609E96 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
