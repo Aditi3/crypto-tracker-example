@@ -1,0 +1,6 @@
+framework module Pods_HelloCrypto {
+  umbrella header "Pods-HelloCrypto-umbrella.h"
+
+  export *
+  module * { export * }
+}

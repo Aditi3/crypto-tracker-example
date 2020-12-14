@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		337D1C46B38788CFFE7E7153 /* Pods_HelloCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0135535B9B3485D09490BDDB /* Pods_HelloCrypto.framework */; };
 		4928A2E7257DF0B400651E35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928A2E6257DF0B400651E35 /* AppDelegate.swift */; };
 		4928A2F0257DF0B500651E35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4928A2EF257DF0B500651E35 /* Assets.xcassets */; };
 		4928A2F3257DF0B500651E35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0135535B9B3485D09490BDDB /* Pods_HelloCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47A3DAA4B23098F7A159D31B /* Pods-HelloCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCrypto.release.xcconfig"; path = "Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto.release.xcconfig"; sourceTree = "<group>"; };
 		4928A2E3257DF0B400651E35 /* HelloCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4928A2E6257DF0B400651E35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4928A2EF257DF0B500651E35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		4928A2F4257DF0B500651E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTableViewController.swift; sourceTree = "<group>"; };
 		4942FF052586FF9600CB3075 /* HCCoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCoinData.swift; sourceTree = "<group>"; };
+		AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCrypto.debug.xcconfig"; path = "Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337D1C46B38788CFFE7E7153 /* Pods_HelloCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				4928A2E5257DF0B400651E35 /* HelloCrypto */,
 				4928A2E4257DF0B400651E35 /* Products */,
+				4B38D4440D7500E77FA77D68 /* Pods */,
+				9FA3BB4A7EC18C15D6C51713 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = HelloCrypto;
 			sourceTree = "<group>";
 		};
+		4B38D4440D7500E77FA77D68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */,
+				47A3DAA4B23098F7A159D31B /* Pods-HelloCrypto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9FA3BB4A7EC18C15D6C51713 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0135535B9B3485D09490BDDB /* Pods_HelloCrypto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4928A2F7257DF0B500651E35 /* Build configuration list for PBXNativeTarget "HelloCrypto" */;
 			buildPhases = (
+				9CCD40BFEEE33A20E3609E96 /* [CP] Check Pods Manifest.lock */,
 				4928A2DF257DF0B400651E35 /* Sources */,
 				4928A2E0257DF0B400651E35 /* Frameworks */,
 				4928A2E1257DF0B400651E35 /* Resources */,
@@ -127,6 +153,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CCD40BFEEE33A20E3609E96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HelloCrypto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4928A2DF257DF0B400651E35 /* Sources */ = {
@@ -271,6 +322,7 @@
 		};
 		4928A2F8257DF0B500651E35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -290,6 +342,7 @@
 		};
 		4928A2F9257DF0B500651E35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47A3DAA4B23098F7A159D31B /* Pods-HelloCrypto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
