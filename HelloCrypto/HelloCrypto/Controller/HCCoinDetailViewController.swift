@@ -10,7 +10,7 @@ import SwiftChart
 
 private let chartHeight: CGFloat = 300.0
 private let imageSize: CGFloat = 84.0
-private let priceLabelHeight: CGFloat = 34.0
+private let priceLabelHeight: CGFloat = 44.0
 private let padding: CGFloat = 20.0
 
 class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
@@ -55,13 +55,13 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     }
     
     func setupImageView() {
-        let imageView = UIImageView(frame: CGRect(x: self.view.frame.size.width/2 - imageSize/2, y: chartHeight + padding, width: imageSize, height: imageSize))
+        let imageView = UIImageView(frame: CGRect(x: self.view.frame.size.width/2 - imageSize/2, y: chartHeight + padding*2, width: imageSize, height: imageSize))
         imageView.image = coin?.image
         self.view.addSubview(imageView)
     }
     
     func setupPriceLabel() {
-        priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding, width: self.view.frame.size.width, height: priceLabelHeight))
+        priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding*2, width: self.view.frame.size.width, height: priceLabelHeight))
         priceLabel.textAlignment = .center
         self.view.addSubview(priceLabel)
     }
