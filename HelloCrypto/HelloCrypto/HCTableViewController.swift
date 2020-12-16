@@ -7,6 +7,7 @@
 
 import UIKit
 
+private let rowHeight: CGFloat = 60.0
 private let headerHeight: CGFloat = 100.0
 private let netWorthHeight: CGFloat = 40.0
 
@@ -17,6 +18,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         loadData()
     }
     
@@ -24,6 +26,11 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         HCCoinData.shared.delegate = self
         displayNetWorth()
         tableView.reloadData()
+    }
+    
+    func setup() {
+        title = "My Crypto Tracker"
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: - Data
@@ -48,7 +55,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     func headerView() -> UIView {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: headerHeight))
-        headerView.backgroundColor = .green
+        headerView.backgroundColor = .white
         
         let networthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: netWorthHeight))
         networthLabel.backgroundColor = .white
@@ -69,6 +76,10 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeight
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
