@@ -7,16 +7,20 @@
 
 import UIKit
 
-class HCTableViewController: UITableViewController {
+class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        HCCoinData.shared.delegate = self
+        HCCoinData.shared.getPrices()
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    // MARK: - Delegates
+    
+    func newPrice() {
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -37,7 +41,7 @@ class HCTableViewController: UITableViewController {
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
-        cell.textLabel?.text = coin.symbol
+        cell.textLabel?.text = coin.symbol + " - " + coin.price.description
         cell.imageView?.image = coin.image
         return cell
     }
