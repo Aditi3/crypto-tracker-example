@@ -18,19 +18,24 @@ class HCCoinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateChart()
+        setupChart()
+        loadData()
     }
     
     func setup() {
         self.view.backgroundColor = .white
     }
     
-    func updateChart() {
+    func setupChart() {
        
         chart.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: chartHeight)
         let series = ChartSeries([0, 5, 6, 8, 9, 19])
         chart.add(series)
         self.view.addSubview(chart)
+    }
+    
+    func loadData() {
+        coin?.getHistoricalData()
     }
     
 

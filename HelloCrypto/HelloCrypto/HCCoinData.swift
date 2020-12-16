@@ -16,6 +16,8 @@ class HCCoinData {
     weak var delegate: HCCoinDataDelegate?
     var coins = [Coin]()
     
+    
+    
     private init() {
         
         let symbols = ["BTC", "ETH", "LTC"]
@@ -37,7 +39,6 @@ class HCCoinData {
         }
         
         cryptoService.fetchCryptoCurrency(symbols: listOfSymbols, currency: "USD") { (json: [String:Any]) in
-            
             for coin in self.coins {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
                     if let price = coinJSON["USD"] {
@@ -52,6 +53,7 @@ class HCCoinData {
 
 @objc protocol HCCoinDataDelegate: class {
     @objc optional func newPrice()
+    @objc optional func newHistoricalData()
 }
 
 class Coin {
@@ -68,6 +70,21 @@ class Coin {
         
         if let image = UIImage(named: symbol.lowercased()) {
             self.image = image
+        }
+    }
+    
+    func getHistoricalData() {
+        
+        HCCryptoHistoricalDataService().fetchCryptoHistoricalData(symbol: self.symbol, currency: "USD", limit: 30) { (json: [String: Any]) in
+            
+            if let priceJSON = json["Data"] as? [[String: Any]] {
+                self.historicalData = []
+                for priceJSON in priceJSON {
+                    if let closePrice = priceJSON["close"] {
+                        self.historicalData.append(closePrice as! Double)
+                    }
+                }
+            }
         }
     }
     

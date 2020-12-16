@@ -10,9 +10,9 @@ import Alamofire
 
 class HCCryptoHistoricalDataService {
     
-    private let cryptoBaseUrl = "https://min-api.cryptocompare.com/data/v2/histoday?"
+    private let cryptoBaseUrl = "https://min-api.cryptocompare.com/data/histoday?"
     
-    func fetchCryptoHistoricalData(symbol: String, currency: String, limit: String, completion: @escaping ([String:Any]) -> Void) {
+    func fetchCryptoHistoricalData(symbol: String, currency: String, limit: NSNumber, completion: @escaping ([String: Any]) -> Void) {
         
         let historicalDataUrl: String = cryptoBaseUrl + "fsym=\(symbol)" + "&tsym=\(currency)" + "&limit=\(limit)"
  
@@ -22,7 +22,7 @@ class HCCryptoHistoricalDataService {
                 case .success(let json):
                     print(json)
                     DispatchQueue.main.async {
-                        completion(json as! [String : Any])
+                        completion(json as! [String: Any])
                     }
                 case .failure(let error):
                     print(error)
