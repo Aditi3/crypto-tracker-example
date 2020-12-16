@@ -22,7 +22,6 @@ final class HCCryptoService {
                 case .success(let json):
                     print(json)
                     DispatchQueue.main.async {
-                        // handle your code
                         completion(json as! [String : Any])
                     }
                 case .failure(let error):

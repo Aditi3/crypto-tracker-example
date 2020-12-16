@@ -13,8 +13,13 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         super.viewDidLoad()
         
         HCCoinData.shared.delegate = self
+        loadData()
+    }
+    
+    // MARK: - Data
+    
+    private func loadData() {
         HCCoinData.shared.getPrices()
-        
     }
     
     // MARK: - Delegates

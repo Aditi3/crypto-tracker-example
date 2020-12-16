@@ -11,10 +11,9 @@ import Foundation
 class HCCoinData {
     
     static let shared = HCCoinData()
+    
     private let cryptoService = HCCryptoService()
-    
     weak var delegate: HCCoinDataDelegate?
-    
     var coins = [Coin]()
     
     private init() {
@@ -71,8 +70,4 @@ class Coin {
             self.image = image
         }
     }
-    
-    
-    
-    
 }
