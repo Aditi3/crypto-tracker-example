@@ -46,7 +46,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
-        cell.textLabel?.text = "\(coin.symbol) - \(coin.price)"
+        cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
         cell.imageView?.image = coin.image
         return cell
     }
