@@ -22,6 +22,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         HCCoinData.shared.delegate = self
+        displayNetWorth()
         tableView.reloadData()
     }
     
@@ -34,7 +35,12 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     // MARK: - Delegates
     
     func newPrice() {
+        displayNetWorth()
         tableView.reloadData()
+    }
+    
+    func displayNetWorth() {
+        amountLabel.text = HCCoinData.shared.networthAsString()
     }
     
     // MARK: - Table view data source
@@ -54,7 +60,9 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         amountLabel.textAlignment = .center
         amountLabel.font = UIFont.boldSystemFont(ofSize: 60.0)
         headerView.addSubview(amountLabel)
-                
+        
+        displayNetWorth()
+        
         return headerView
     }
     
@@ -82,7 +90,11 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
-        cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
+        if coin.amount != 0.0 {
+            cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
+        } else {
+            cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
+        }
         cell.imageView?.image = coin.image
         return cell
     }
