@@ -68,17 +68,49 @@
 		4928A2E5257DF0B400651E35 /* HelloCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				4928A2E6257DF0B400651E35 /* AppDelegate.swift */,
-				4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */,
-				4942FF3D258A140200CB3075 /* HCCoinViewController.swift */,
-				4942FF052586FF9600CB3075 /* HCCoinData.swift */,
-				4942FF1D2589D91500CB3075 /* HCCryptoService.swift */,
-				4942FF45258A1A8200CB3075 /* HCCryptoHistoricalDataService.swift */,
+				4942FF4C258A450100CB3075 /* Model */,
+				4942FF4B258A44DA00CB3075 /* Service */,
+				4942FF4A258A44D200CB3075 /* Controller */,
+				4942FF49258A44CB00CB3075 /* App */,
 				4928A2EF257DF0B500651E35 /* Assets.xcassets */,
 				4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */,
 				4928A2F4257DF0B500651E35 /* Info.plist */,
 			);
 			path = HelloCrypto;
+			sourceTree = "<group>";
+		};
+		4942FF49258A44CB00CB3075 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4928A2E6257DF0B400651E35 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4942FF4A258A44D200CB3075 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */,
+				4942FF3D258A140200CB3075 /* HCCoinViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4942FF4B258A44DA00CB3075 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4942FF1D2589D91500CB3075 /* HCCryptoService.swift */,
+				4942FF45258A1A8200CB3075 /* HCCryptoHistoricalDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4942FF4C258A450100CB3075 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4942FF052586FF9600CB3075 /* HCCoinData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4B38D4440D7500E77FA77D68 /* Pods */ = {

@@ -30,7 +30,6 @@ class HCCoinData {
     }
     
     func getPrices() {
-        
         var listOfSymbols = ""
         for coin in coins {
             listOfSymbols += coin.symbol
@@ -47,7 +46,7 @@ class HCCoinData {
                     }
                 }
             }
-            self.delegate?.newPrice?()
+            self.delegate?.newPrices?()
         }
     }
     
