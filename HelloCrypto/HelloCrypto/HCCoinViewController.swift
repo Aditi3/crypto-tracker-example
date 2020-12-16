@@ -18,6 +18,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     var coin: Coin?
     var chart = Chart()
     var priceLabel = UILabel()
+    var youOwnLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
         setupChart()
         setupImageView()
         setupPriceLabel()
+        setupOwningLabel()
         loadData()
     }
     
@@ -55,8 +57,20 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     func setupPriceLabel() {
         priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding, width: self.view.frame.size.width, height: priceLabelHeight))
         priceLabel.text = coin?.priceAsString()
+        priceLabel.backgroundColor = UIColor.red
         priceLabel.textAlignment = .center
         self.view.addSubview(priceLabel)
+    }
+    
+    func setupOwningLabel() {
+        youOwnLabel.frame = CGRect(x: 0, y: priceLabel.frame.origin.y + priceLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
+        youOwnLabel.textAlignment = .center
+        youOwnLabel.backgroundColor = UIColor.green
+        youOwnLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        if let coin = coin {
+            youOwnLabel.text = "You own: \(coin.amount) \(coin.symbol)"
+        }
+        self.view.addSubview(youOwnLabel)
     }
     
     // MARK: - Data
