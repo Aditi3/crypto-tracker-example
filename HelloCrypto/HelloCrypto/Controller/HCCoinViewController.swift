@@ -21,7 +21,6 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     var youOwnLabel = UILabel()
     var worthLabel = UILabel()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +32,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
         setupPriceLabel()
         setupOwningLabel()
         setupWorthLabel()
+        
         loadData()
     }
     

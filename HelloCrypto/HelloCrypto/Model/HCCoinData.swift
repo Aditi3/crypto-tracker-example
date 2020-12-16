@@ -38,6 +38,7 @@ class HCCoinData {
             }
         }
         
+        // crypto currency service request
         cryptoService.fetchCryptoCurrency(symbols: listOfSymbols, currency: currencySymbol) { (json: [String:Any]) in
             for coin in self.coins {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
@@ -96,6 +97,7 @@ class Coin {
     
     func getHistoricalData() {
         
+        // crypto historical data service request
         HCCryptoHistoricalDataService().fetchCryptoHistoricalData(symbol: self.symbol, currency: currencySymbol, limit: 30) { (json: [String: Any]) in
             
             if let priceJSON = json["Data"] as? [[String: Any]] {

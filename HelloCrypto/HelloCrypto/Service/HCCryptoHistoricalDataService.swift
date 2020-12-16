@@ -20,7 +20,7 @@ class HCCryptoHistoricalDataService {
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
-                    print(json)
+                    print("Fetched Crypto Historical Data Json: \(json)")
                     DispatchQueue.main.async {
                         completion(json as! [String: Any])
                     }

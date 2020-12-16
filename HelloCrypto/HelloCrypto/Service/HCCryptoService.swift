@@ -20,7 +20,7 @@ final class HCCryptoService {
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
-                    print(json)
+                    print("Fetched Crypto Currency Json: \(json)")
                     DispatchQueue.main.async {
                         completion(json as! [String : Any])
                     }

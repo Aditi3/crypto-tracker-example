@@ -28,6 +28,8 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         tableView.reloadData()
     }
     
+    // MARK: - Setup
+
     func setup() {
         title = "My Crypto Tracker"
         tableView.tableFooterView = UIView()
