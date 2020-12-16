@@ -38,4 +38,8 @@ class Coin {
            self.image = image
         }
     }
+    
+    func getPrices() {
+        
+    }
 }

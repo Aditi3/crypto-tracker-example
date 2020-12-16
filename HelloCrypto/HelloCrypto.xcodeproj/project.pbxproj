@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		4928A2F3257DF0B500651E35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */; };
 		4928A2FF257DF9DE00651E35 /* HCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */; };
 		4942FF062586FF9600CB3075 /* HCCoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF052586FF9600CB3075 /* HCCoinData.swift */; };
+		4942FF1E2589D91500CB3075 /* HCCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF1D2589D91500CB3075 /* HCCryptoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4928A2F4257DF0B500651E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTableViewController.swift; sourceTree = "<group>"; };
 		4942FF052586FF9600CB3075 /* HCCoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCoinData.swift; sourceTree = "<group>"; };
+		4942FF1D2589D91500CB3075 /* HCCryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCryptoService.swift; sourceTree = "<group>"; };
 		AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCrypto.debug.xcconfig"; path = "Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 				4928A2E6257DF0B400651E35 /* AppDelegate.swift */,
 				4928A2FE257DF9DE00651E35 /* HCTableViewController.swift */,
 				4942FF052586FF9600CB3075 /* HCCoinData.swift */,
+				4942FF1D2589D91500CB3075 /* HCCryptoService.swift */,
 				4928A2EF257DF0B500651E35 /* Assets.xcassets */,
 				4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */,
 				4928A2F4257DF0B500651E35 /* Info.plist */,
@@ -77,7 +80,6 @@
 				AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */,
 				47A3DAA4B23098F7A159D31B /* Pods-HelloCrypto.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -203,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4928A2FF257DF9DE00651E35 /* HCTableViewController.swift in Sources */,
+				4942FF1E2589D91500CB3075 /* HCCryptoService.swift in Sources */,
 				4942FF062586FF9600CB3075 /* HCCoinData.swift in Sources */,
 				4928A2E7257DF0B400651E35 /* AppDelegate.swift in Sources */,
 			);
