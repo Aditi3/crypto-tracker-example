@@ -8,6 +8,8 @@
 import UIKit
 import Foundation
 
+private let currencySymbol: String = "USD"
+
 class HCCoinData {
     
     static let shared = HCCoinData()
@@ -15,7 +17,6 @@ class HCCoinData {
     private let cryptoService = HCCryptoService()
     weak var delegate: HCCoinDataDelegate?
     var coins = [Coin]()
-    
     
     
     private init() {
@@ -38,7 +39,7 @@ class HCCoinData {
             }
         }
         
-        cryptoService.fetchCryptoCurrency(symbols: listOfSymbols, currency: "USD") { (json: [String:Any]) in
+        cryptoService.fetchCryptoCurrency(symbols: listOfSymbols, currency: currencySymbol) { (json: [String:Any]) in
             for coin in self.coins {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
                     if let price = coinJSON["USD"] {
@@ -88,7 +89,7 @@ class Coin {
     
     func getHistoricalData() {
         
-        HCCryptoHistoricalDataService().fetchCryptoHistoricalData(symbol: self.symbol, currency: "USD", limit: 30) { (json: [String: Any]) in
+        HCCryptoHistoricalDataService().fetchCryptoHistoricalData(symbol: self.symbol, currency: currencySymbol, limit: 30) { (json: [String: Any]) in
             
             if let priceJSON = json["Data"] as? [[String: Any]] {
                 self.historicalData = []
@@ -107,7 +108,6 @@ class Coin {
         if price == 0.0 {
             return "Loading..."
         }
-        
         return HCCoinData.shared.doubleToMoneyString(double: price)
     }
 }

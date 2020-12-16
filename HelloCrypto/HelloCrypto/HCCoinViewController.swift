@@ -9,12 +9,16 @@ import UIKit
 import SwiftChart
 
 private let chartHeight: CGFloat = 300.0
+private let imageSize: CGFloat = 84.0
+private let priceLabelHeight: CGFloat = 64.0
+private let padding: CGFloat = 20.0
 
 class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     var coin: Coin?
     var chart = Chart()
-
+    var priceLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,8 +26,12 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
         
         setup()
         setupChart()
+        setupImageView()
+        setupPriceLabel()
         loadData()
     }
+    
+    // MARK: - Setup
     
     func setup() {
         self.view.backgroundColor = .white
@@ -38,9 +46,26 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
         self.view.addSubview(chart)
     }
     
+    func setupImageView() {
+        let imageView = UIImageView(frame: CGRect(x: self.view.frame.size.width/2 - imageSize/2, y: chartHeight + padding, width: imageSize, height: imageSize))
+        imageView.image = coin?.image
+        self.view.addSubview(imageView)
+    }
+    
+    func setupPriceLabel() {
+        priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding, width: self.view.frame.size.width, height: priceLabelHeight))
+        priceLabel.text = coin?.priceAsString()
+        priceLabel.textAlignment = .center
+        self.view.addSubview(priceLabel)
+    }
+    
+    // MARK: - Data
+    
     func loadData() {
         coin?.getHistoricalData()
     }
+    
+    // MARK: - Delegate
     
     func newHistoricalData() {
         if let coin = coin {
@@ -49,15 +74,19 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
             chart.add(series)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func newPrice() {
+        priceLabel.text = coin?.priceAsString()
     }
-    */
-
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
