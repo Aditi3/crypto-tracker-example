@@ -40,7 +40,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     
     func setup() {
         self.view.backgroundColor = .white
-        title = coin?.symbol
+        title = coin?.getName()
         navigationController?.navigationBar.isTranslucent = false
         edgesForExtendedLayout = []
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
