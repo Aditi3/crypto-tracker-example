@@ -51,4 +51,10 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coinVC = HCCoinViewController()
+        navigationController?.pushViewController(coinVC, animated: true)
+        
+    }
+    
 }
