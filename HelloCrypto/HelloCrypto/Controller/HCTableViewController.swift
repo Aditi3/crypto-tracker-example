@@ -31,7 +31,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     // MARK: - Setup
     
     func setup() {
-        title = "My Crypto Tracker"
+        title = "Crypto Tracker"
         navigationController?.navigationBar.isTranslucent = false
         if #available(iOS 13.0, *) {
             tableView.backgroundColor = .systemGroupedBackground
@@ -69,11 +69,11 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         let networthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: netWorthHeight))
         networthLabel.backgroundColor = .white
         networthLabel.textAlignment = .center
-        networthLabel.text = "My Crypto Net Worth"
+        networthLabel.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
+        networthLabel.text = "Hello, Your Crypto Net Worth"
         headerView.addSubview(networthLabel)
         
         amountLabel.frame = CGRect(x: 0, y: netWorthHeight, width: view.frame.size.width, height: headerHeight - netWorthHeight - 20)
-        amountLabel.backgroundColor = .purple
         amountLabel.textAlignment = .center
         amountLabel.font = UIFont.boldSystemFont(ofSize: 48.0)
         headerView.addSubview(amountLabel)
@@ -111,7 +111,9 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
+        cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18.0)
+        cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Regular", size: 14.0)
+
         cell.textLabel?.text = coin.symbol
         if coin.amount != 0.0 {
             cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
