@@ -29,7 +29,6 @@
                             <constraint firstItem="Ifb-Sj-ggY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="D8D-pS-opX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ifb-Sj-ggY" secondAttribute="trailing" constant="44" id="Fb8-la-phC"/>
                             <constraint firstItem="Ifb-Sj-ggY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Loe-8X-334"/>
-                            <constraint firstItem="Ifb-Sj-ggY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gXJ-XF-arg"/>
                         </constraints>
                     </view>
                 </viewController>
