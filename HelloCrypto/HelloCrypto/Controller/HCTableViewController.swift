@@ -7,8 +7,8 @@
 
 import UIKit
 
-private let rowHeight: CGFloat = 60.0
-private let headerHeight: CGFloat = 100.0
+private let rowHeight: CGFloat = 74.0
+private let headerHeight: CGFloat = 160.0
 private let netWorthHeight: CGFloat = 40.0
 
 
@@ -32,6 +32,13 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     func setup() {
         title = "My Crypto Tracker"
+        navigationController?.navigationBar.isTranslucent = false
+        if #available(iOS 13.0, *) {
+            tableView.backgroundColor = .systemGroupedBackground
+        } else {
+            // Fallback on earlier versions
+            tableView.backgroundColor = .groupTableViewBackground
+        }
         tableView.tableFooterView = UIView()
     }
     
@@ -56,7 +63,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     func headerView() -> UIView {
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: headerHeight))
+        let headerView = UIView(frame: CGRect(x: 20, y: 0, width: self.view.frame.size.width, height: headerHeight))
         headerView.backgroundColor = .white
         
         let networthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: netWorthHeight))
@@ -65,9 +72,10 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         networthLabel.text = "My Crypto Net Worth"
         headerView.addSubview(networthLabel)
         
-        amountLabel.frame = CGRect(x: 0, y: netWorthHeight, width: view.frame.size.width, height: headerHeight - netWorthHeight)
+        amountLabel.frame = CGRect(x: 0, y: netWorthHeight, width: view.frame.size.width, height: headerHeight - netWorthHeight - 20)
+        amountLabel.backgroundColor = .purple
         amountLabel.textAlignment = .center
-        amountLabel.font = UIFont.boldSystemFont(ofSize: 60.0)
+        amountLabel.font = UIFont.boldSystemFont(ofSize: 48.0)
         headerView.addSubview(amountLabel)
         
         displayNetWorth()
@@ -103,10 +111,10 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
-        cell.textLabel?.text = coin.symbol
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
+        cell.textLabel?.text = coin.symbol
         if coin.amount != 0.0 {
-            cell.detailTextLabel?.text = "\(coin.priceAsString()) - \(coin.amount)"
+            cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
         } else {
             cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
         }
@@ -118,7 +126,6 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         let coinVC = HCCoinViewController()
         coinVC.coin = HCCoinData.shared.coins[indexPath.row]
         navigationController?.pushViewController(coinVC, animated: true)
-        
     }
     
 }
