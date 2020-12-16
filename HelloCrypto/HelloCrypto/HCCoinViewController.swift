@@ -10,7 +10,7 @@ import SwiftChart
 
 private let chartHeight: CGFloat = 300.0
 private let imageSize: CGFloat = 84.0
-private let priceLabelHeight: CGFloat = 64.0
+private let priceLabelHeight: CGFloat = 34.0
 private let padding: CGFloat = 20.0
 
 class HCCoinViewController: UIViewController, HCCoinDataDelegate {
@@ -40,7 +40,10 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     func setup() {
         self.view.backgroundColor = .white
+        title = coin?.symbol
+        navigationController?.navigationBar.isTranslucent = false
         edgesForExtendedLayout = []
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
     }
     
     func setupChart() {
@@ -100,6 +103,34 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
             youOwnLabel.text = "You own: \(coin.amount) \(coin.symbol)"
             worthLabel.text = coin.amountAsString()
         }
+    }
+    
+    // MARK: - Action
+    
+    @objc func editTapped() {
+        
+        if let coin = coin {
+            let alert = UIAlertController(title: "How much \(coin.symbol) do you own?", message: nil, preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "0.5"
+                textField.keyboardType = .decimalPad
+                if self.coin?.amount != 0.0 {
+                    textField.text = String(coin.amount)
+                }
+            }
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                if let text = alert.textFields?[0].text {
+                    if let amount = Double(text) {
+                        self.coin?.amount = amount
+                        self.newPrice()
+                    }
+                }
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     /*
