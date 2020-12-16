@@ -8,11 +8,16 @@
 import UIKit
 
 class HCCoinViewController: UIViewController {
+    
+    var coin: Coin?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setup()
+    }
+    
+    func setup() {
+        self.view.backgroundColor = .white
     }
     
 
