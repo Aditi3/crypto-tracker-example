@@ -29,7 +29,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     }
     
     // MARK: - Setup
-
+    
     func setup() {
         title = "My Crypto Tracker"
         tableView.tableFooterView = UIView()
@@ -99,14 +99,16 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "coinCell")
         
         // Configure the cell...
         let coin = HCCoinData.shared.coins[indexPath.row]
+        cell.textLabel?.text = coin.symbol
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
         if coin.amount != 0.0 {
-            cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
+            cell.detailTextLabel?.text = "\(coin.priceAsString()) - \(coin.amount)"
         } else {
-            cell.textLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
+            cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString())"
         }
         cell.imageView?.image = coin.image
         return cell
