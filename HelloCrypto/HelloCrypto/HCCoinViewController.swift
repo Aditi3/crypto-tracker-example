@@ -6,18 +6,31 @@
 //
 
 import UIKit
+import SwiftChart
+
+private let chartHeight: CGFloat = 300.0
 
 class HCCoinViewController: UIViewController {
     
     var coin: Coin?
+    var chart = Chart()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        updateChart()
     }
     
     func setup() {
         self.view.backgroundColor = .white
+    }
+    
+    func updateChart() {
+       
+        chart.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: chartHeight)
+        let series = ChartSeries([0, 5, 6, 8, 9, 19])
+        chart.add(series)
+        self.view.addSubview(chart)
     }
     
 
