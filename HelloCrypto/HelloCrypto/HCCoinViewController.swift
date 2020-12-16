@@ -84,7 +84,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     func loadData() {
         coin?.getHistoricalData()
-        newPrice()
+        newPrices()
     }
     
     // MARK: - Delegate
@@ -97,7 +97,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
         }
     }
     
-    func newPrice() {
+    func newPrices() {
         if let coin = coin {
             priceLabel.text = coin.priceAsString()
             youOwnLabel.text = "You own: \(coin.amount) \(coin.symbol)"
@@ -123,7 +123,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
                 if let text = alert.textFields?[0].text {
                     if let amount = Double(text) {
                         self.coin?.amount = amount
-                        self.newPrice()
+                        self.newPrices()
                     }
                 }
             }))

@@ -41,7 +41,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     // MARK: - Delegates
     
-    func newPrice() {
+    func newPrices() {
         displayNetWorth()
         tableView.reloadData()
     }

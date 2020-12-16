@@ -74,7 +74,7 @@ class HCCoinData {
 }
 
 @objc protocol HCCoinDataDelegate: class {
-    @objc optional func newPrice()
+    @objc optional func newPrices()
     @objc optional func newHistoricalData()
 }
 
@@ -112,7 +112,6 @@ class Coin {
     }
     
     func priceAsString() -> String {
-        
         if price == 0.0 {
             return "Loading..."
         }
