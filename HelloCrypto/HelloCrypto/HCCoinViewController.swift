@@ -59,8 +59,6 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     func setupPriceLabel() {
         priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding, width: self.view.frame.size.width, height: priceLabelHeight))
-        priceLabel.text = coin?.priceAsString()
-        priceLabel.backgroundColor = UIColor.red
         priceLabel.textAlignment = .center
         self.view.addSubview(priceLabel)
     }
@@ -68,22 +66,14 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     func setupOwningLabel() {
         youOwnLabel.frame = CGRect(x: 0, y: priceLabel.frame.origin.y + priceLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
         youOwnLabel.textAlignment = .center
-        youOwnLabel.backgroundColor = UIColor.green
         youOwnLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        if let coin = coin {
-            youOwnLabel.text = "You own: \(coin.amount) \(coin.symbol)"
-        }
         self.view.addSubview(youOwnLabel)
     }
     
     func setupWorthLabel() {
         worthLabel.frame = CGRect(x: 0, y: youOwnLabel.frame.origin.y + youOwnLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
         worthLabel.textAlignment = .center
-        worthLabel.backgroundColor = UIColor.systemPink
         worthLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        if let coin = coin {
-            worthLabel.text = "You own: \(coin.amount) \(coin.symbol)"
-        }
         self.view.addSubview(worthLabel)
     }
     
@@ -91,6 +81,7 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     func loadData() {
         coin?.getHistoricalData()
+        newPrice()
     }
     
     // MARK: - Delegate
@@ -104,7 +95,11 @@ class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     }
     
     func newPrice() {
-        priceLabel.text = coin?.priceAsString()
+        if let coin = coin {
+            priceLabel.text = coin.priceAsString()
+            youOwnLabel.text = "You own: \(coin.amount) \(coin.symbol)"
+            worthLabel.text = coin.amountAsString()
+        }
     }
     
     /*

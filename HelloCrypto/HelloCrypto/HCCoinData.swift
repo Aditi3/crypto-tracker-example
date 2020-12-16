@@ -110,4 +110,8 @@ class Coin {
         }
         return HCCoinData.shared.doubleToMoneyString(double: price)
     }
+    
+    func amountAsString() -> String {
+        return HCCoinData.shared.doubleToMoneyString(double: amount * price)
+    }
 }
