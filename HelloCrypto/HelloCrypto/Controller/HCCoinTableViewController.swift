@@ -11,8 +11,7 @@ private let rowHeight: CGFloat = 74.0
 private let headerHeight: CGFloat = 160.0
 private let netWorthHeight: CGFloat = 40.0
 
-
-class HCTableViewController: UITableViewController, HCCoinDataDelegate {
+class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
     
     var amountLabel = UILabel()
     
@@ -113,7 +112,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
         let coin = HCCoinData.shared.coins[indexPath.row]
         cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18.0)
         cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Regular", size: 14.0)
-
+        
         cell.textLabel?.text = coin.symbol
         if coin.amount != 0.0 {
             cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
@@ -125,7 +124,7 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coinVC = HCCoinViewController()
+        let coinVC = HCCoinDetailViewController()
         coinVC.coin = HCCoinData.shared.coins[indexPath.row]
         navigationController?.pushViewController(coinVC, animated: true)
     }

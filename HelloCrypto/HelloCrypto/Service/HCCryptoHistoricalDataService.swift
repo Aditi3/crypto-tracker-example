@@ -15,7 +15,7 @@ class HCCryptoHistoricalDataService {
     func fetchCryptoHistoricalData(symbol: String, currency: String, limit: NSNumber, completion: @escaping ([String: Any]) -> Void) {
         
         let historicalDataUrl: String = cryptoBaseUrl + "fsym=\(symbol)" + "&tsym=\(currency)" + "&limit=\(limit)"
- 
+        
         AF.request(historicalDataUrl, method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in
                 switch response.result {

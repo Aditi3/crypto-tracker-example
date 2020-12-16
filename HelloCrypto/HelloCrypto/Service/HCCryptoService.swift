@@ -15,7 +15,7 @@ final class HCCryptoService {
     func fetchCryptoCurrency(symbols: String, currency: String, completion: @escaping ([String:Any]) -> Void) {
         
         let cryptoCurrencyUrl: String = baseUrl + "fsyms=\(symbols)" + "&tsyms=\(currency)"
- 
+        
         AF.request(cryptoCurrencyUrl, method: .get, encoding: JSONEncoding.default)
             .responseJSON { response in
                 switch response.result {

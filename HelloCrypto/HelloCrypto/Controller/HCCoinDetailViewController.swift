@@ -13,7 +13,7 @@ private let imageSize: CGFloat = 84.0
 private let priceLabelHeight: CGFloat = 34.0
 private let padding: CGFloat = 20.0
 
-class HCCoinViewController: UIViewController, HCCoinDataDelegate {
+class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     
     var coin: Coin?
     var chart = Chart()
