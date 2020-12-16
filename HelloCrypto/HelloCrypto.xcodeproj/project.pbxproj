@@ -161,6 +161,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
+				ORGANIZATIONNAME = "Aditi Agrawal";
 				TargetAttributes = {
 					4928A2E2257DF0B400651E35 = {
 						CreatedOnToolsVersion = 12.1;
@@ -168,7 +169,7 @@
 				};
 			};
 			buildConfigurationList = 4928A2DE257DF0B400651E35 /* Build configuration list for PBXProject "HelloCrypto" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
