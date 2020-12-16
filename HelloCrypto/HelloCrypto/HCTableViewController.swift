@@ -11,9 +11,12 @@ class HCTableViewController: UITableViewController, HCCoinDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        HCCoinData.shared.delegate = self
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        HCCoinData.shared.delegate = self
+        tableView.reloadData()
     }
     
     // MARK: - Data
