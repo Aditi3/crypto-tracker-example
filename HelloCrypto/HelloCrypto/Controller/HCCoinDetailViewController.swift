@@ -69,7 +69,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     func setupOwningLabel() {
         youOwnLabel.frame = CGRect(x: 0, y: priceLabel.frame.origin.y + priceLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
         youOwnLabel.textAlignment = .center
-        youOwnLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        youOwnLabel.font = UIFont(name: "AvenirNext-Bold", size: 20.0)
         self.view.addSubview(youOwnLabel)
     }
     
