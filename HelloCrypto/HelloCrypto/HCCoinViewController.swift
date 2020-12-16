@@ -10,13 +10,16 @@ import SwiftChart
 
 private let chartHeight: CGFloat = 300.0
 
-class HCCoinViewController: UIViewController {
+class HCCoinViewController: UIViewController, HCCoinDataDelegate {
     
     var coin: Coin?
     var chart = Chart()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        HCCoinData.shared.delegate = self
+        
         setup()
         setupChart()
         loadData()
@@ -24,13 +27,11 @@ class HCCoinViewController: UIViewController {
     
     func setup() {
         self.view.backgroundColor = .white
+        edgesForExtendedLayout = []
     }
     
     func setupChart() {
-       
         chart.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: chartHeight)
-        let series = ChartSeries([0, 5, 6, 8, 9, 19])
-        chart.add(series)
         self.view.addSubview(chart)
     }
     
@@ -38,6 +39,13 @@ class HCCoinViewController: UIViewController {
         coin?.getHistoricalData()
     }
     
+    func newHistoricalData() {
+        if let coin = coin {
+            let series = ChartSeries(coin.historicalData)
+            series.area = true
+            chart.add(series)
+        }
+    }
 
     /*
     // MARK: - Navigation

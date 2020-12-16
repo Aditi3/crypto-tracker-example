@@ -85,6 +85,7 @@ class Coin {
                     }
                 }
             }
+            HCCoinData.shared.delegate?.newHistoricalData?()
         }
     }
     
