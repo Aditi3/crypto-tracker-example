@@ -95,6 +95,19 @@ class Coin {
         }
     }
     
+    func getName() -> String {
+        
+        if symbol == "ETH" {
+            return "Ethereum"
+        } else if symbol == "BTC" {
+            return "Bitcoin"
+        } else if symbol == "LTC" {
+            return "Litecoin"
+        } else {
+            return "Not found"
+        }
+    }
+    
     func getHistoricalData() {
         
         // crypto historical data service request

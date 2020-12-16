@@ -113,7 +113,7 @@ class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
         cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18.0)
         cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Regular", size: 14.0)
         
-        cell.textLabel?.text = coin.symbol
+        cell.textLabel?.text = coin.getName()
         if coin.amount != 0.0 {
             cell.detailTextLabel?.text = "\(coin.symbol) - \(coin.priceAsString()) - \(coin.amount)"
         } else {
