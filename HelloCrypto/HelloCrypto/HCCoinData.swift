@@ -49,6 +49,19 @@ class HCCoinData {
             self.delegate?.newPrice?()
         }
     }
+    
+    func doubleToMoneyString(double: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.numberStyle = .currency
+        formatter.string(from: NSNumber(floatLiteral: double))
+        
+        if let formattedPrice = formatter.string(from: NSNumber(floatLiteral: double)) {
+            return formattedPrice
+        } else{
+            return "Error fetching price"
+        }
+    }
 }
 
 @objc protocol HCCoinDataDelegate: class {
@@ -95,15 +108,6 @@ class Coin {
             return "Loading..."
         }
         
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.numberStyle = .currency
-        formatter.string(from: NSNumber(floatLiteral: price))
-        
-        if let formattedPrice = formatter.string(from: NSNumber(floatLiteral: price)) {
-            return formattedPrice
-        } else{
-            return "Error fetching price"
-        }
+        return HCCoinData.shared.doubleToMoneyString(double: price)
     }
 }
