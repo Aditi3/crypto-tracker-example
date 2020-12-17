@@ -22,12 +22,7 @@ class HCAuthViewController: UIViewController {
     // MARK: - Setup
     
     func setup() {
-        if #available(iOS 13.0, *) {
-            self.view.backgroundColor = .systemGray5
-        } else {
-            // Fallback on earlier versions
-            self.view.backgroundColor = .lightText
-        }
+        self.view.backgroundColor = Color.background
     }
     
     func presentAuth() {
