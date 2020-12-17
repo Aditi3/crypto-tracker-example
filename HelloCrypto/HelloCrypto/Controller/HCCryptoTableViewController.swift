@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 private let rowHeight: CGFloat = 74.0
 private let headerHeight: CGFloat = 160.0
 private let netWorthHeight: CGFloat = 40.0
 
-class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
+class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     
     var amountLabel = UILabel()
+    
+    // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +35,12 @@ class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
     func setup() {
         title = "Crypto Tracker"
         navigationController?.navigationBar.isTranslucent = false
-        if #available(iOS 13.0, *) {
-            tableView.backgroundColor = .systemGroupedBackground
-        } else {
-            // Fallback on earlier versions
-            tableView.backgroundColor = .groupTableViewBackground
-        }
+        tableView.backgroundColor = Color.background
         tableView.tableFooterView = UIView()
+        
+        if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+            updateSecureButton()
+        }
     }
     
     // MARK: - Data
@@ -53,6 +55,28 @@ class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
         displayNetWorth()
         tableView.reloadData()
     }
+    
+    
+    // MARK: - Auth Actions
+    
+    func updateSecureButton() {
+        if HCUtils.isAppSecure() {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Unsecure App", style: .plain, target: self, action: #selector(secureTapped))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Secure App", style: .plain, target: self, action: #selector(secureTapped))
+        }
+    }
+    
+    @objc func secureTapped() {
+        if HCUtils.isAppSecure() {
+            HCUtils.updateAppSecureKey(secure: false)
+        } else {
+            HCUtils.updateAppSecureKey(secure: true)
+        }
+        updateSecureButton()
+    }
+    
+    // MARK: - Amount Handling
     
     func displayNetWorth() {
         amountLabel.text = HCCoinData.shared.networthAsString()
