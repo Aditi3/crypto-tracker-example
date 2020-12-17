@@ -37,11 +37,9 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
         navigationController?.navigationBar.isTranslucent = false
         tableView.backgroundColor = Color.background
         tableView.tableFooterView = UIView()
-        
         if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             updateSecureButton()
         }
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Report", style: .plain, target: self, action: #selector(reportTapped))
     }
     
@@ -76,7 +74,6 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
         displayNetWorth()
         tableView.reloadData()
     }
-    
     
     // MARK: - Auth Actions
     
