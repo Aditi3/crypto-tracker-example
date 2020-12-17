@@ -1,4 +1,4 @@
-# Hello, Crypto Tracker
+# Hello Crypto Tracker
 
 ## 👋 Introduction
 
