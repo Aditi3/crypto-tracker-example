@@ -20,5 +20,9 @@ internal struct HCUtils {
     static func updateAppSecureKey(secure: Bool) {
         UserDefaults.standard.setValue(secure, forKey: "secure")
     }
-
+    
+    static func setValue(value: Any, key: String) {
+        UserDefaults.standard.setValue(value, forKey: key)
+        print("Saving: \(value) for: \(key)")
+    }
 }

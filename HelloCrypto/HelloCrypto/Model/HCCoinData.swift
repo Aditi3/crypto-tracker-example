@@ -44,6 +44,7 @@ class HCCoinData {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
                     if let price = coinJSON["USD"] {
                         coin.price = price
+                        HCUtils.setValue(value: price, key: coin.symbol)
                     }
                 }
             }
@@ -136,6 +137,7 @@ class Coin {
                 }
             }
             HCCoinData.shared.delegate?.newHistoricalData?()
+            HCUtils.setValue(value: self.historicalData, key: self.symbol + "history")
         }
     }
     
