@@ -74,6 +74,7 @@
 		4928A2E5257DF0B400651E35 /* HelloCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				4942FF75258B0B3200CB3075 /* Utils */,
 				4942FF4C258A450100CB3075 /* Model */,
 				4942FF4B258A44DA00CB3075 /* Service */,
 				4942FF4A258A44D200CB3075 /* Controller */,
@@ -81,7 +82,6 @@
 				4928A2EF257DF0B500651E35 /* Assets.xcassets */,
 				4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */,
 				4928A2F4257DF0B500651E35 /* Info.plist */,
-				4942FF67258B07CD00CB3075 /* HCUtils.swift */,
 			);
 			path = HelloCrypto;
 			sourceTree = "<group>";
@@ -120,6 +120,14 @@
 				4942FF052586FF9600CB3075 /* HCCoinData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4942FF75258B0B3200CB3075 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4942FF67258B07CD00CB3075 /* HCUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		4B38D4440D7500E77FA77D68 /* Pods */ = {
