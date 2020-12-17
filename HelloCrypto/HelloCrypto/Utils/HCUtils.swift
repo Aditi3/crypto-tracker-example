@@ -25,4 +25,14 @@ internal struct HCUtils {
         UserDefaults.standard.setValue(value, forKey: key)
         print("Saving: \(value) for: \(key)")
     }
+    
+    static func getDouble(key: String) -> Double {
+        print("Fetching Double for: \(key)")
+        return UserDefaults.standard.double(forKey: key)
+    }
+    
+    static func getArray(key: String) -> Array<Any> {
+        print("Fetching Array for: \(key)")
+        return UserDefaults.standard.array(forKey: key) ?? []
+    }
 }

@@ -108,6 +108,13 @@ class Coin {
         if let image = UIImage(named: symbol.lowercased()) {
             self.image = image
         }
+        
+        self.price = HCUtils.getDouble(key: symbol)
+        self.amount = HCUtils.getDouble(key: symbol + "amount")
+        
+        if let historicalData = HCUtils.getArray(key: symbol + "history") as? [Double] {
+            self.historicalData = historicalData
+        }
     }
     
     func getName() -> String {
