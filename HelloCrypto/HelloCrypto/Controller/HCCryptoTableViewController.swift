@@ -47,7 +47,7 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     
     
     @objc func reportTapped() {
-        let formatter = UIMarkupTextPrintFormatter(markupText: "Hello, Aditi")
+        let formatter = UIMarkupTextPrintFormatter(markupText: HCCoinData.shared.html())
         let render = UIPrintPageRenderer()
         render.addPrintFormatter(formatter, startingAtPageAt: 0)
         let page = CGRect(x: 0, y: 0, width: 595.2, height: 841.8)
