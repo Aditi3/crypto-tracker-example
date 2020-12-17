@@ -18,6 +18,7 @@
 		4942FF46258A1A8200CB3075 /* HCCryptoHistoricalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF45258A1A8200CB3075 /* HCCryptoHistoricalDataService.swift */; };
 		4942FF58258AF8D800CB3075 /* HCAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF57258AF8D800CB3075 /* HCAuthViewController.swift */; };
 		4942FF5D258B016E00CB3075 /* HCColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF5C258B016E00CB3075 /* HCColor.swift */; };
+		4942FF68258B07CD00CB3075 /* HCUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942FF67258B07CD00CB3075 /* HCUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4942FF45258A1A8200CB3075 /* HCCryptoHistoricalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCryptoHistoricalDataService.swift; sourceTree = "<group>"; };
 		4942FF57258AF8D800CB3075 /* HCAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAuthViewController.swift; sourceTree = "<group>"; };
 		4942FF5C258B016E00CB3075 /* HCColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCColor.swift; sourceTree = "<group>"; };
+		4942FF67258B07CD00CB3075 /* HCUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCUtils.swift; sourceTree = "<group>"; };
 		AFF4862E75A88141E6D43BC1 /* Pods-HelloCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloCrypto.debug.xcconfig"; path = "Target Support Files/Pods-HelloCrypto/Pods-HelloCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				4928A2EF257DF0B500651E35 /* Assets.xcassets */,
 				4928A2F1257DF0B500651E35 /* LaunchScreen.storyboard */,
 				4928A2F4257DF0B500651E35 /* Info.plist */,
+				4942FF67258B07CD00CB3075 /* HCUtils.swift */,
 			);
 			path = HelloCrypto;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				4942FF1E2589D91500CB3075 /* HCCryptoService.swift in Sources */,
 				4942FF5D258B016E00CB3075 /* HCColor.swift in Sources */,
 				4942FF58258AF8D800CB3075 /* HCAuthViewController.swift in Sources */,
+				4942FF68258B07CD00CB3075 /* HCUtils.swift in Sources */,
 				4942FF062586FF9600CB3075 /* HCCoinData.swift in Sources */,
 				4942FF3E258A140200CB3075 /* HCCoinDetailViewController.swift in Sources */,
 				4928A2E7257DF0B400651E35 /* AppDelegate.swift in Sources */,

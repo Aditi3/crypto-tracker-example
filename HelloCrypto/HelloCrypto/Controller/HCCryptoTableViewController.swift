@@ -17,7 +17,7 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     var amountLabel = UILabel()
     
     // MARK: - View Controller Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -56,11 +56,11 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
         tableView.reloadData()
     }
     
-  
+    
     // MARK: - Auth Actions
-
+    
     func updateSecureButton() {
-        if UserDefaults.standard.bool(forKey: "secure") {
+        if HCUtils.isAppSecure() {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Unsecure App", style: .plain, target: self, action: #selector(secureTapped))
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Secure App", style: .plain, target: self, action: #selector(secureTapped))
@@ -68,10 +68,10 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     }
     
     @objc func secureTapped() {
-        if UserDefaults.standard.bool(forKey: "secure") {
-            UserDefaults.standard.setValue(false, forKey: "secure")
+        if HCUtils.isAppSecure() {
+            HCUtils.updateAppSecureKey(secure: false)
         } else {
-            UserDefaults.standard.setValue(true, forKey: "secure")
+            HCUtils.updateAppSecureKey(secure: true)
         }
         updateSecureButton()
     }
