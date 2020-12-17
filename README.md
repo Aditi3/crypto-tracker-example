@@ -2,7 +2,7 @@
 
 ## 👋 Introduction
 
-A Crypto Tracker is an application that returns the current value of Ethereum, Bitcoin, Litecoin, and more in USD.
+Hello Crypto Tracker is an application that returns the current value of Ethereum, Bitcoin, Litecoin, and more in USD.
 
 ## 📄 License
 
