@@ -128,6 +128,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
                     if let amount = Double(text) {
                         self.coin?.amount = amount
                         self.newPrices()
+                        HCPreferences.setValue(value: amount, key: coin.symbol + "amount")
                     }
                 }
             }))

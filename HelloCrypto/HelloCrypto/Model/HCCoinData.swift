@@ -44,6 +44,7 @@ class HCCoinData {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
                     if let price = coinJSON["USD"] {
                         coin.price = price
+                        HCPreferences.setValue(value: price, key: coin.symbol)
                     }
                 }
             }
@@ -71,6 +72,20 @@ class HCCoinData {
         }
         return doubleToMoneyString(double: networth)
     }
+    
+    func html() -> String {
+        var html = "<h1>My Crypto Report</h1>"
+        html += "<h2>Net Worth: \(networthAsString())</h2>"
+        html += "<ul>"
+        for coin in coins {
+            if coin.amount != 0.0 {
+                html += "<li>\(coin.symbol) - I own: \(coin.amount) - Valued at: \(doubleToMoneyString(double: coin.amount * coin.price))</li>"
+            }
+        }
+        html += "</ul>"
+        return html
+    }
+    
 }
 
 @objc protocol HCCoinDataDelegate: class {
@@ -92,6 +107,13 @@ class Coin {
         
         if let image = UIImage(named: symbol.lowercased()) {
             self.image = image
+        }
+        
+        self.price = HCPreferences.getDouble(key: symbol)
+        self.amount = HCPreferences.getDouble(key: symbol + "amount")
+        
+        if let historicalData = HCPreferences.getArray(key: symbol + "history") as? [Double] {
+            self.historicalData = historicalData
         }
     }
     
@@ -122,6 +144,7 @@ class Coin {
                 }
             }
             HCCoinData.shared.delegate?.newHistoricalData?()
+            HCPreferences.setValue(value: self.historicalData, key: self.symbol + "history")
         }
     }
     
