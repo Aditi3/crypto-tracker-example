@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal struct HCUtils {
+internal struct HCPreferences {
         
     // Access Shared Defaults Object
     static let userDefaults = UserDefaults.standard

@@ -44,7 +44,7 @@ class HCCoinData {
                 if let coinJSON = json[coin.symbol] as? [String: Double] {
                     if let price = coinJSON["USD"] {
                         coin.price = price
-                        HCUtils.setValue(value: price, key: coin.symbol)
+                        HCPreferences.setValue(value: price, key: coin.symbol)
                     }
                 }
             }
@@ -109,10 +109,10 @@ class Coin {
             self.image = image
         }
         
-        self.price = HCUtils.getDouble(key: symbol)
-        self.amount = HCUtils.getDouble(key: symbol + "amount")
+        self.price = HCPreferences.getDouble(key: symbol)
+        self.amount = HCPreferences.getDouble(key: symbol + "amount")
         
-        if let historicalData = HCUtils.getArray(key: symbol + "history") as? [Double] {
+        if let historicalData = HCPreferences.getArray(key: symbol + "history") as? [Double] {
             self.historicalData = historicalData
         }
     }
@@ -144,7 +144,7 @@ class Coin {
                 }
             }
             HCCoinData.shared.delegate?.newHistoricalData?()
-            HCUtils.setValue(value: self.historicalData, key: self.symbol + "history")
+            HCPreferences.setValue(value: self.historicalData, key: self.symbol + "history")
         }
     }
     
