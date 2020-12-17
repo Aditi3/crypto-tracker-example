@@ -41,6 +41,30 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
         if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             updateSecureButton()
         }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Report", style: .plain, target: self, action: #selector(reportTapped))
+    }
+    
+    
+    @objc func reportTapped() {
+        
+        let formatter = UIMarkupTextPrintFormatter(markupText: "Hello, Aditi")
+        let render = UIPrintPageRenderer()
+        render.addPrintFormatter(formatter, startingAtPageAt: 0)
+        
+        let page = CGRect(x: 0, y: 0, width: 595, height: 841.8)
+        
+        render.setValue(page, forKey: "pagerRect")
+        render.setValue(page, forKey: "printableRect")
+        
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, .zero, nil)
+        
+        for i in 0..<render.numberOfPages {
+            UIGraphicsBeginPDFPage()
+            render.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
+        UIGraphicsEndPDFContext()
     }
     
     // MARK: - Data
