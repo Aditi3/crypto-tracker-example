@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let authVC = HCAuthViewController()
             window?.rootViewController = authVC
         } else {
-            let cryptoTableVC = HCCoinTableViewController()
+            let cryptoTableVC = HCCryptoTableViewController()
             let navController = UINavigationController(rootViewController: cryptoTableVC)
             window?.rootViewController = navController
         }

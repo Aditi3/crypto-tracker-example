@@ -12,7 +12,7 @@ private let rowHeight: CGFloat = 74.0
 private let headerHeight: CGFloat = 160.0
 private let netWorthHeight: CGFloat = 40.0
 
-class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
+class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     
     var amountLabel = UILabel()
     
