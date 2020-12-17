@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 private let rowHeight: CGFloat = 74.0
 private let headerHeight: CGFloat = 160.0
@@ -39,6 +40,10 @@ class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
             tableView.backgroundColor = .groupTableViewBackground
         }
         tableView.tableFooterView = UIView()
+        
+        if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+            updateSecureButton()
+        }
     }
     
     // MARK: - Data
@@ -56,6 +61,23 @@ class HCCoinTableViewController: UITableViewController, HCCoinDataDelegate {
     
     func displayNetWorth() {
         amountLabel.text = HCCoinData.shared.networthAsString()
+    }
+    
+    func updateSecureButton() {
+        if UserDefaults.standard.bool(forKey: "secure") {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Unsecure App", style: .plain, target: self, action: #selector(secureTapped))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Secure App", style: .plain, target: self, action: #selector(secureTapped))
+        }
+    }
+    
+    @objc func secureTapped() {
+        if UserDefaults.standard.bool(forKey: "secure") {
+            UserDefaults.standard.setValue(false, forKey: "secure")
+        } else {
+            UserDefaults.standard.setValue(true, forKey: "secure")
+        }
+        updateSecureButton()
     }
     
     // MARK: - Table view data source
