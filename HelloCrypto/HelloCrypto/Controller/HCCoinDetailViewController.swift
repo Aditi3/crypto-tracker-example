@@ -21,11 +21,14 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     var youOwnLabel = UILabel()
     var worthLabel = UILabel()
     
+    // MARK: - View Controller Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         HCCoinData.shared.delegate = self
         
+        // setup UI elements
         setup()
         setupChart()
         setupImageView()
@@ -33,6 +36,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
         setupOwningLabel()
         setupWorthLabel()
         
+        // load data for UI elements
         loadData()
     }
     
