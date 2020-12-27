@@ -9,7 +9,7 @@ import UIKit
 import LocalAuthentication
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class HCAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
