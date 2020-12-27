@@ -12,3 +12,10 @@ Hello Crypto Tracker is an application that returns the current value of Ethereu
 Hello Crypto Tracker is available under the MIT license. See [LICENSE](https://github.com/Aditi3/crypto-tracker-example/blob/develop/LICENSE) for details.
 
 ## 🎬 ScreenShot
+
+
+<p float="left"> 
+<img src="/images/image-1.png" width="140">
+<img src="/images/image-2.png" width="140">
+<img src="/images/image-3.png" width="140">
+</p>
