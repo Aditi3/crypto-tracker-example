@@ -7,6 +7,15 @@
 
 Hello Crypto Tracker is an application that returns the current value of Ethereum, Bitcoin, Litecoin, and more in USD.
 
+## Features
+
+- Listing down of CryptoCurrency(s)
+- Returns the current value of Ethereum, Bitcoin and Litecoin
+- Added Chart view to display a close amount of selected CryptoCurrency
+- Added Crypto Currency Detail Page
+- Adds FaceID and TouchID authentication
+- Create, Share and Print User Net Worth Pdf Report
+
 ## 📄 License
 
 Hello Crypto Tracker is available under the MIT license. See [LICENSE](https://github.com/Aditi3/crypto-tracker-example/blob/develop/LICENSE) for details.
