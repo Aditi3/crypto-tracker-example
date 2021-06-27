@@ -105,18 +105,19 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     func headerView() -> UIView {
         
         let headerView = UIView(frame: CGRect(x: 20, y: 0, width: self.view.frame.size.width, height: headerHeight))
-        headerView.backgroundColor = .white
+        headerView.backgroundColor = .systemBackground
         
         let networthLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: netWorthHeight))
-        networthLabel.backgroundColor = .white
         networthLabel.textAlignment = .center
         networthLabel.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
         networthLabel.text = "Hello, Your Crypto Net Worth"
+        networthLabel.textColor = .label
         headerView.addSubview(networthLabel)
         
         amountLabel.frame = CGRect(x: 0, y: netWorthHeight, width: view.frame.size.width, height: headerHeight - netWorthHeight - 20)
         amountLabel.textAlignment = .center
         amountLabel.font = UIFont.boldSystemFont(ofSize: 48.0)
+        amountLabel.textColor = .label
         headerView.addSubview(amountLabel)
         
         displayNetWorth()

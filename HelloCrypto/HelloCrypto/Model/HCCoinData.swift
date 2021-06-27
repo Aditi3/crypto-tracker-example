@@ -88,7 +88,7 @@ class HCCoinData {
     
 }
 
-@objc protocol HCCoinDataDelegate: class {
+@objc protocol HCCoinDataDelegate: AnyObject {
     @objc optional func newPrices()
     @objc optional func newHistoricalData()
 }
