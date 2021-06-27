@@ -22,7 +22,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     var worthLabel = UILabel()
     
     // MARK: - View Controller Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +43,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     // MARK: - Setup
     
     func setup() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
         title = coin?.getName()
         navigationController?.navigationBar.isTranslucent = false
         edgesForExtendedLayout = []
@@ -54,6 +54,8 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
         chart.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: chartHeight)
         chart.yLabelsFormatter = {HCCoinData.shared.doubleToMoneyString(double: $1)}
         chart.xLabels = [30, 25, 20, 15, 10, 5, 0]
+        chart.axesColor = .systemPink
+        chart.labelColor = .label
         chart.xLabelsFormatter = { String(Int(round(30 - $1))) + "d"}
         self.view.addSubview(chart)
     }
@@ -67,12 +69,14 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     func setupPriceLabel() {
         priceLabel = UILabel(frame: CGRect(x: 0, y: chartHeight + imageSize + padding*2, width: self.view.frame.size.width, height: priceLabelHeight))
         priceLabel.textAlignment = .center
+        priceLabel.textColor = .label
         self.view.addSubview(priceLabel)
     }
     
     func setupOwningLabel() {
         youOwnLabel.frame = CGRect(x: 0, y: priceLabel.frame.origin.y + priceLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
         youOwnLabel.textAlignment = .center
+        youOwnLabel.textColor = .label
         youOwnLabel.font = UIFont(name: "AvenirNext-Bold", size: 20.0)
         self.view.addSubview(youOwnLabel)
     }
@@ -80,6 +84,7 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
     func setupWorthLabel() {
         worthLabel.frame = CGRect(x: 0, y: youOwnLabel.frame.origin.y + youOwnLabel.frame.size.height, width: self.view.frame.size.width, height: priceLabelHeight)
         worthLabel.textAlignment = .center
+        worthLabel.textColor = .label
         worthLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         self.view.addSubview(worthLabel)
     }
@@ -137,15 +142,5 @@ class HCCoinDetailViewController: UIViewController, HCCoinDataDelegate {
         }
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

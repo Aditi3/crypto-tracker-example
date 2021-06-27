@@ -7,6 +7,6 @@ target 'HelloCrypto' do
   
   # Pods for HelloCrypto
   pod "Alamofire"
-  pod "SwiftChart"
+  pod "SwiftChart", :inhibit_warnings => true
   
 end
