@@ -23,7 +23,7 @@ class HCAuthViewController: UIViewController {
     // MARK: - Setup
     
     func setup() {
-        self.view.backgroundColor = Color.background
+        self.view.backgroundColor = .systemBackground
     }
     
     func presentAuth() {

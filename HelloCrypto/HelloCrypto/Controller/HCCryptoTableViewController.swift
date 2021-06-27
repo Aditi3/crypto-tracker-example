@@ -35,7 +35,7 @@ class HCCryptoTableViewController: UITableViewController, HCCoinDataDelegate {
     func setup() {
         title = "Crypto Tracker"
         navigationController?.navigationBar.isTranslucent = false
-        tableView.backgroundColor = Color.background
+        tableView.backgroundColor = .systemBackground
         tableView.tableFooterView = UIView()
         if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             updateSecureButton()
