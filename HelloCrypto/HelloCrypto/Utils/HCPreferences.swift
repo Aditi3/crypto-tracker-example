@@ -9,12 +9,12 @@
 import Foundation
 
 internal struct HCPreferences {
-        
+    
     // Access Shared Defaults Object
     static let userDefaults = UserDefaults.standard
     
     static func isAppSecure() -> Bool {
-       return userDefaults.bool(forKey: "secure") 
+        return userDefaults.bool(forKey: "secure")
     }
     
     static func updateAppSecureKey(secure: Bool) {
